@@ -1,0 +1,110 @@
+@import url("https://fonts.googleapis.com/css2?family=Cardo:ital@1&family=Martel:wght@200&family=Rancho&family=Spectral:ital,wght@1,200;1,500&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 1400px;
+  width: auto;
+  background-color: #F2F2F2;
+}
+body .header {
+  height: 360px;
+  width: auto;
+}
+body .header .curved {
+  position: relative;
+  background: #0D0D0D;
+  height: 320px;
+  border-bottom-left-radius: 50% 20%;
+  border-bottom-right-radius: 50% 20%;
+}
+body .header .curved a {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  font-size: 50px;
+}
+body .header .curved a .imglogo {
+  height: 150px;
+  width: auto;
+  text-align: center;
+  padding: 15px;
+  margin: 10px;
+}
+body .header .curved a .nameLef {
+  text-transform: uppercase;
+  color: #F2F2F2;
+  font-family: "Rancho", cursive;
+  text-shadow: 2PX 0 2px rgba(240, 133, 32, 0.9529411765);
+}
+body .header .curved a .nameLef span {
+  color: #F2C12E;
+  text-transform: capitalize;
+  font-family: "Rancho", cursive;
+}
+body .header .curved .slogan {
+  font-family: "Spectral", serif;
+  font-size: 32px;
+  color: rgba(240, 133, 32, 0.9529411765);
+  letter-spacing: 7px;
+  text-align: center;
+  text-shadow: 2px 0 2px #0D0D0D;
+  text-transform: capitalize;
+}
+body .header .items {
+  height: 40px;
+  margin-top: 20px;
+  color: #BC292D;
+}
+body .header .items .bi-search {
+  font-size: 28px;
+  margin-left: 100px;
+}
+body .header .items .buscar {
+  height: 28px;
+  width: 270px;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  padding: 5px;
+  border-radius: 15px;
+  margin-left: 7px;
+}
+body .header .items .carrito {
+  color: #BC292D;
+  font-size: 28px;
+  float: right;
+  margin-right: 120px;
+  text-decoration: none;
+  text-align: center;
+}
+body .header .items .carrito .logoCart {
+  background-color: #F2C12E;
+  color: rgba(240, 133, 32, 0.9529411765);
+  border: 5px solid #F2F2F2;
+  border-radius: 70%;
+}
+body .header .items .carrito .itemCarrito {
+  font-size: 25px;
+  font-family: "Martel", serif;
+  font-weight: bolder;
+}
+body .principal {
+  height: 900px;
+  width: auto;
+  margin-top: 25px;
+}
+body .footer {
+  background-color: rgba(240, 133, 32, 0.9529411765);
+  height: 150px;
+}
+body .footer p {
+  text-align: center;
+  font-size: 20px;
+  color: #F2C12E;
+  text-shadow: 0 0 7px #BC292D;
+  font-family: "Spectral", serif;
+}/*# sourceMappingURL=style.css.map */
