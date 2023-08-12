@@ -19,7 +19,5 @@ const quesos = [{id: 1, img: 'img/gouda.png', nombre: 'Gouda', precio: 5990, ori
                 {id: 19, img: 'img/manchego.png', nombre: 'Manchego', precio: 14990, origen: 'Español'},
                 {id: 20, img: 'img/mahones.png', nombre: 'Mahonés', precio: 14990, origen: 'Español'}] */
 
-const carrito = [{id: 7, img: 'img/tulum.png', nombre: 'Tulum', precio: 14990, origen: 'Turco'},
-{id: 8, img: 'img/emmental.png', nombre: 'Emmental', precio: 9990, origen: 'Suizo'},
-{id: 9, img: 'img/appenzeller.png', nombre: 'Appenzeller', precio: 15990, origen: 'Suizo'}]
+const carrito = []
 
