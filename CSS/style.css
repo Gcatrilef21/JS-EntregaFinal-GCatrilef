@@ -67,11 +67,13 @@ body .header .items .buscar {
   height: 28px;
   width: 270px;
   font-size: 18px;
-  font-weight: bold;
+  font-weight: lighter;
   text-align: center;
   padding: 5px;
   border-radius: 15px;
   margin-left: 7px;
+  border: none;
+  background-color: #F2C12E;
 }
 body .header .items .carrito {
   color: #BC292D;
@@ -82,20 +84,73 @@ body .header .items .carrito {
   text-align: center;
 }
 body .header .items .carrito .logoCart {
-  background-color: #F2C12E;
   color: rgba(240, 133, 32, 0.9529411765);
-  border: 5px solid #F2F2F2;
-  border-radius: 70%;
+  text-shadow: 1px 1px 2px #BC292D;
 }
 body .header .items .carrito .itemCarrito {
-  font-size: 25px;
+  font-size: 22px;
   font-family: "Martel", serif;
-  font-weight: bolder;
+  font-weight: lighter;
+  color: rgba(240, 133, 32, 0.9529411765);
+  text-shadow: 1px 1px 2px #BC292D;
 }
 body .principal {
   height: 900px;
   width: auto;
   margin-top: 25px;
+  display: flex;
+  justify-content: space-between;
+}
+body .principal .card {
+  margin-top: 140px;
+  height: 400px;
+  width: 180px;
+  text-align: center;
+  background-color: #F2F2F2;
+  border: 2px solid #F2C12E;
+  border-radius: 10px;
+  font-size: 20px;
+}
+body .principal .card .imgProduct {
+  margin: 6px;
+  border-radius: 8px;
+  margin: 10px;
+}
+body .principal .card .producto {
+  font-family: "Spectral", serif;
+  font-weight: bolder;
+  font-size: 29px;
+  color: rgba(240, 133, 32, 0.9529411765);
+  text-shadow: 1px 1px 2px #BC292D;
+}
+body .principal .card .precio {
+  font-family: "Cardo", serif;
+  font-weight: bolder;
+  color: #BC292D;
+}
+body .principal .card .origen {
+  font-family: monospace;
+  color: #BC292D;
+  text-shadow: 1px 1px 2px #F2C12E;
+}
+body .principal .card button {
+  height: 40px;
+  width: 100px;
+  color: #0D0D0D;
+  background-color: rgba(240, 133, 32, 0.9529411765);
+  border: 1px solid #BC292D;
+  box-shadow: 2px 2px #BC292D;
+  font-size: 18px;
+  border-radius: 5px;
+  text-transform: capitalize;
+  transition: 0.4s ease-out;
+}
+body .principal .card button:hover {
+  background-color: #BC292D;
+  box-shadow: 2px 6px rgba(240, 133, 32, 0.9529411765);
+  border-radius: 5px;
+  color: #F2F2F2;
+  transition: 10ms ease-in-out;
 }
 body .footer {
   background-color: rgba(240, 133, 32, 0.9529411765);
