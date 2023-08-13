@@ -190,8 +190,31 @@ body {
                 transition: 10ms ease-in-out;
             }
         } 
-            
+        
+        .table{
+            margin: 45px;
+            text-align: center;
+            text-transform: capitalize;
+            font-weight: bold  !important;
+            color: $color3;
+            background-color: $color1;
 
+            #tablaProductos{
+                color: $color3;
+                padding: 60px;
+                color: $color5;
+                align-items: center;
+
+                .tablabody{
+                    height: 20px !important;
+                }
+
+                .customButton{
+                    font-family: cursive;
+                }
+
+            }
+        }
     }
 
     .footer{

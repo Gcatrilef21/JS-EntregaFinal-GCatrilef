@@ -152,6 +152,26 @@ body .principal .card button:hover {
   color: #F2F2F2;
   transition: 10ms ease-in-out;
 }
+body .principal .table {
+  margin: 45px;
+  text-align: center;
+  text-transform: capitalize;
+  font-weight: bold !important;
+  color: rgba(240, 133, 32, 0.9529411765);
+  background-color: #F2F2F2;
+}
+body .principal .table #tablaProductos {
+  color: rgba(240, 133, 32, 0.9529411765);
+  padding: 60px;
+  color: #0D0D0D;
+  align-items: center;
+}
+body .principal .table #tablaProductos .tablabody {
+  height: 20px !important;
+}
+body .principal .table #tablaProductos .customButton {
+  font-family: cursive;
+}
 body .footer {
   background-color: rgba(240, 133, 32, 0.9529411765);
   height: 150px;

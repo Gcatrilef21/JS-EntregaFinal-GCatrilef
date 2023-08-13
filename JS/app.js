@@ -46,11 +46,10 @@ function cargarProductos(array) {
         array.forEach((queso) => {
             main.innerHTML += mostrarProductos(queso)
             activarClickBotones()
-
+            unidadCarro()
         })
     } else {
-        alert('No hay productos')
-        mostrarMensajes('No hay productos',)
+        mostrarMensajes('No hay productos', 'center', 'linear-gradient(to bottom, #F2C12E, #BC292D)')
     }
 }
 
@@ -61,7 +60,7 @@ function activarClickBotones() {
             const addProd = quesos.find((queso) => queso.id === parseInt((boton.id)))
             carrito.push(addProd)
             unidadCarro()
-            mostrarMensajes("Añadido Correctamente", 'right', "linear-gradient(to right, #F2C12E, #F08520F3)")
+            mostrarMensajes("Añadido Correctamente", 'right', 'linear-gradient(to right, #F2C12E, #F08520F3)')
         })
     })
 }

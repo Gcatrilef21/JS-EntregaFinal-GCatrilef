@@ -21,3 +21,9 @@ const quesos = [{id: 1, img: 'img/gouda.png', nombre: 'Gouda', precio: 5990, ori
 
 const carrito = []
 
+
+function guardarProd (){
+    if(carrito.length > 0){
+        localStorage.setItem('GuardarQuesos', JSON.stringify(carrito))
+    }
+}
