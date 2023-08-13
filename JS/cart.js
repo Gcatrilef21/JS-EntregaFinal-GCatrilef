@@ -1,6 +1,12 @@
 const main = document.querySelector('div.principal#principal')
 const tablaProd = document.querySelector('tbody#tablaProductos')
+const search = document.querySelector('input.buscar#inputSearch')
+const logo = document.querySelector('img.imglogo')
 
+
+
+
+/*                  FUNCIONES                  */
 
 function crearLista({
     id,
@@ -37,8 +43,26 @@ function cargarLista(array) {
             tablaProd.innerHTML += crearLista(queso)
         })
     } else{
-        mostrarMensajes('No hay productos', 'center', 'linear-gradient(to bottom, #F2C12E, #BC292D)')
+        mostrarMensajes('El Carrito esta vacio', 'left', 'linear-gradient(to bottom, #F2C12E, #BC292D)')
     }
 }
 
 
+
+
+                /*                  EVENTOS                  */
+
+search.addEventListener('mouseover', () => search.title = 'Buscar')
+logo.addEventListener('mouseover',() => logo.title = 'Ir al Inicio') 
+
+search.addEventListener('search', () => {
+    if (search.value.trim() !== '') {
+        const resultado = quesos.filter((queso) => queso.nombre.toLowerCase().includes(search.value.trim().toLowerCase()))
+        cargarLista(resultado)
+    } else {
+        cargarLista(carrito)
+    }
+})
+
+
+cargarLista (carrito)

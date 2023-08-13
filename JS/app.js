@@ -59,6 +59,7 @@ function activarClickBotones() {
         boton.addEventListener('click', () => {
             const addProd = quesos.find((queso) => queso.id === parseInt((boton.id)))
             carrito.push(addProd)
+            guardarProd ()
             unidadCarro()
             mostrarMensajes("Añadido Correctamente", 'right', 'linear-gradient(to right, #F2C12E, #F08520F3)')
         })
@@ -88,7 +89,7 @@ verCarrito.addEventListener('mouseover', () => verCarrito.title = 'Ver Carrito')
 
 
 
-search.addEventListener('search', (e) => {
+search.addEventListener('search', () => {
     if (search.value.trim() !== '') {
         const resultado = quesos.filter((queso) => queso.nombre.toLowerCase().includes(search.value.trim().toLowerCase()))
         cargarProductos(resultado)

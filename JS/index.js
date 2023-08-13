@@ -27,3 +27,7 @@ function guardarProd (){
         localStorage.setItem('GuardarQuesos', JSON.stringify(carrito))
     }
 }
+
+function recuperarCarrito(){
+    return JSON.parse(localStorage.getItem('GuardarQuesos')) || []
+}
