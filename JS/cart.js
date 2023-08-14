@@ -2,51 +2,45 @@ const main = document.querySelector('div.principal#principal')
 const tablaProd = document.querySelector('tbody#tablaProductos')
 const search = document.querySelector('input.buscar#inputSearch')
 const logo = document.querySelector('img.imglogo')
-
+const cantidadProd = document.querySelector('span.itemCarrito')
 
 
 
 /*                  FUNCIONES                  */
 
-function crearLista({
+function mostrarCantidadCarro() {
+    cantidadProd.textContent = recuperarCarrito.length
+}
+
+recuperarCarrito.length > 0 && mostrarCantidadCarro()
+
+function mostrarListaCarrito({
     id,
     nombre,
     precio
 } = queso) {
+    const codigo = parseInt(Math.random()*1000)
     return `<tr class='tablabody'>
-                <th>${id}</th>
+                <td>${codigo}</td>
                 <td>${nombre}</td>
                 <td>$${precio}</td>
-                <td><button id="${id}" class=""></button></td>
+                <td><button class="delete" id="${id}" class="">❌</button></td>
             </tr>`
 }
 
-
-function mostrarMensajes(msg, position ,bgcolor) {
-    Toastify({
-        text: msg,
-        duration: 4000,
-        close: true,
-        gravity: "top", // `top` or `bottom`
-        position: position, // `left`, `center` or `right`
-        stopOnFocus: true, // Prevents dismissing of toast on hover
-        style: {
-            background: bgcolor,
-        }
-    }).showToast();
+function mostrarSinProductos (){
+    return `<div class="card-cart">
+                <h3> ⛔ el carrito se encuentra vacio 🧀</h3>
+                <a href="./index.html"><button class"btn-error">seguir comprando</button></a>
+            </div>`
 }
 
-function cargarLista(array) {
+function cargarLista() {
     tablaProd.innerHTML = ''
-    if (array.length > 0) {
-        array.forEach((queso) => {
-            tablaProd.innerHTML += crearLista(queso)
-        })
-    } else{
-        mostrarMensajes('El Carrito esta vacio', 'left', 'linear-gradient(to bottom, #F2C12E, #BC292D)')
-    }
+    recuperarCarrito.length > 0 ? recuperarCarrito.forEach((queso) => tablaProd.innerHTML += mostrarListaCarrito (queso))
+                        : tablaProd.innerHTML = mostrarSinProductos ()
 }
-
+cargarLista()
 
 
 

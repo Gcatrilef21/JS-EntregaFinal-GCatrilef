@@ -4,16 +4,16 @@ const cantidadProd = document.querySelector('span.itemCarrito')
 const main = document.querySelector('div.principal#principal')
 const logo = document.querySelector('img.imglogo')
 const verCarrito = document.querySelector('i.bi.bi-bag-fill.logoCart')
-
+const URL = './JS/quesos.json'
 
 
 /*                      Funciones                      */
 
-function unidadCarro() {
-    cantidadProd.innerHTML = carrito.length
+function mostrarCantidadCarro() {
+    cantidadProd.textContent = recuperarCarrito.length
 }
 
-carrito.length > 0 && unidadCarro()
+recuperarCarrito.length > 0 && mostrarCantidadCarro()
 
 function mostrarProductos({
     id,
@@ -46,7 +46,7 @@ function cargarProductos(array) {
         array.forEach((queso) => {
             main.innerHTML += mostrarProductos(queso)
             activarClickBotones()
-            unidadCarro()
+            mostrarCantidadCarro()
         })
     } else {
         mostrarMensajes('No hay productos', 'center', 'linear-gradient(to bottom, #F2C12E, #BC292D)')
@@ -60,7 +60,7 @@ function activarClickBotones() {
             const addProd = quesos.find((queso) => queso.id === parseInt((boton.id)))
             carrito.push(addProd)
             guardarProd ()
-            unidadCarro()
+            mostrarCantidadCarro()
             mostrarMensajes("Añadido Correctamente", 'right', 'linear-gradient(to right, #F2C12E, #F08520F3)')
         })
     })
@@ -82,6 +82,15 @@ function mostrarMensajes(msg, position ,bgcolor) {
 }
 
 
+/* function obtenerQuesos (){
+    fetch(URL)
+    .then((response) => response.json())
+    .then((data) => cargarProductos.push(...data))
+    .then((data) => console.table(data))
+    .catch((error) => main.innerHTML = mostrarProductos())
+} */
+
+
 /*                      EVENTOS                      */
 
 logo.addEventListener('mouseover', () => logo.title = 'Ir al inicio')
@@ -97,17 +106,6 @@ search.addEventListener('search', () => {
         cargarProductos(quesos)
     }
 })
-
-
-
-
-
-
-
-
-
-
-
 
 
 cargarProductos(quesos)
