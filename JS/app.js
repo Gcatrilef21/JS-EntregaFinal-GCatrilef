@@ -59,7 +59,7 @@ function activarClickBotones() {
         boton.addEventListener('click', () => {
             let addProd = quesos.find((queso) => queso.id === parseInt((boton.id)))
             recuperarCarrito.push(addProd)
-            localStorage.setItem('GuardarQuesos', JSON.stringify(recuperarCarrito))
+            guardarProductos ()
             mostrarCantidadCarro()
             mostrarMensajes("Añadido Correctamente", 'right', 'linear-gradient(to right, #F2C12E, #F08520F3)')
         })

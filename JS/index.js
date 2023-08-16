@@ -21,3 +21,7 @@ const quesos = [{id: 1, img: 'img/gouda.png', nombre: 'Gouda', precio: 5990, ori
 
 
 const recuperarCarrito = JSON.parse(localStorage.getItem('GuardarQuesos')) || []
+
+function guardarProductos (){
+    localStorage.setItem('GuardarQuesos', JSON.stringify(recuperarCarrito))
+}

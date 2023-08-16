@@ -23,9 +23,10 @@ function mostrarListaCarrito({
                 <td>${codigo}</td>
                 <td>${nombre}</td>
                 <td>$${precio}</td>
-                <td id="${id}"><button class="delete">❌</button></td>
+                <td id="${id}"class="eliminar" >❌</td>
             </tr>`
 }
+
 
 function mostrarSinProductos (){
     return `<div class="card-cart">
@@ -34,24 +35,30 @@ function mostrarSinProductos (){
             </div>`
 }
 
-function activarBotones(){
-    const botonesDelete = document.querySelectorAll('button.delete')
-    console.log(botonesDelete)
-    botonesDelete.forEach((botonDelete)=>{
-        botonDelete.addEventListener('click', ()=>{
-            let codigo = parseInt(botonDelete)
-            let indice = carrito.findIndex((queso)=> queso.id === codigo)
-
+function activarBotonesEliminar(){
+    const botonesEliminar = document.querySelectorAll('td.eliminar')
+    botonesEliminar.forEach((botonEliminar)=>{
+        botonEliminar.addEventListener('click', ()=>{
+            let codigo = parseInt(botonEliminar.id)
+            let resultado = recuperarCarrito.findIndex((queso) => queso.id === codigo) 
+            recuperarCarrito.splice(resultado,1)
+            cargarLista()
+            guardarProductos ()
         })
     })
 }
 
+
 function cargarLista() {
     tablaProd.innerHTML = ''
-    recuperarCarrito.length > 0 ? recuperarCarrito.forEach((queso) => tablaProd.innerHTML += mostrarListaCarrito (queso))
-                        : tablaProd.innerHTML = mostrarSinProductos ()
+    if (recuperarCarrito.length > 0){
+        recuperarCarrito.forEach((queso) => tablaProd.innerHTML += mostrarListaCarrito (queso))
+        activarBotonesEliminar()
+        mostrarCantidadCarro()
+    }else{
+        tablaProd.innerHTML = mostrarSinProductos ()
+    }
 }
-cargarLista()
 
 
 
