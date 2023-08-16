@@ -4,7 +4,7 @@ const cantidadProd = document.querySelector('span.itemCarrito')
 const main = document.querySelector('div.principal#principal')
 const logo = document.querySelector('img.imglogo')
 const verCarrito = document.querySelector('i.bi.bi-bag-fill.logoCart')
-//const URL = './JS/quesos.json'
+const URL = 'JS/quesos.json'
 
 
 /*                      Funciones                      */
@@ -49,7 +49,7 @@ function cargarProductos(array) {
             mostrarCantidadCarro()
         })
     } else {
-        mostrarMensajes('No hay productos', 'center', 'linear-gradient(to bottom, #F2C12E, #BC292D)')
+        //mostrarMensajes('No hay productos', 'center', 'linear-gradient(to bottom, #F2C12E, #BC292D)')
     }
 }
 
@@ -81,15 +81,14 @@ function mostrarMensajes(msg, position ,bgcolor) {
     }).showToast();
 }
 
-
-/* function obtenerQuesos (){
+function pedirDatosQuesos(){
     fetch(URL)
-    .then((response) => response.json())
-    .then((data) => cargarProductos.push(...data))
-    .then((data) => console.table(data))
-    .catch((error) => main.innerHTML = mostrarProductos())
-} */
-
+    .then((res)=> res.json())
+    .then((data) => quesos.push(...data))
+    .then(() => cargarProductos(quesos))
+    .catch((error) => container.innerHTML = mostrarMensajes('No hay productos', 'center', 'linear-gradient(to bottom, #F2C12E, #BC292D)'))
+}
+pedirDatosQuesos()
 
 /*                      EVENTOS                      */
 
@@ -107,5 +106,3 @@ search.addEventListener('search', () => {
     }
 })
 
-
-cargarProductos(quesos)
