@@ -13,6 +13,8 @@ body {
 body .header {
   height: 360px;
   width: auto;
+  display: grid;
+  grid-template-columns: auto;
 }
 body .header .curved {
   position: relative;
@@ -95,23 +97,27 @@ body .header .items .carrito .itemCarrito {
   text-shadow: 1px 1px 2px #BC292D;
 }
 body .principal {
-  height: 900px;
+  height: 2000px;
   width: auto;
   margin-top: 25px;
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(4, 450px);
+  justify-items: center;
 }
 body .principal .card {
   margin-top: 140px;
   height: 400px;
-  width: 180px;
+  width: 200px;
   text-align: center;
   background-color: #F2F2F2;
-  border: 2px solid #F2C12E;
+  border: 4px solid #F2C12E;
+  box-shadow: 8px 0px 16px rgba(240, 133, 32, 0.9529411765);
   border-radius: 10px;
   font-size: 20px;
 }
 body .principal .card .imgProduct {
+  height: 150px;
   margin: 6px;
   border-radius: 8px;
   margin: 10px;
@@ -136,10 +142,9 @@ body .principal .card .origen {
 body .principal .card button {
   height: 40px;
   width: 100px;
-  color: #0D0D0D;
-  background-color: rgba(240, 133, 32, 0.9529411765);
-  border: 1px solid #BC292D;
-  box-shadow: 2px 2px #BC292D;
+  color: #BC292D;
+  background-color: #F2F2F2;
+  border: 2px solid rgba(240, 133, 32, 0.9529411765);
   font-size: 18px;
   border-radius: 5px;
   text-transform: capitalize;
@@ -147,10 +152,13 @@ body .principal .card button {
 }
 body .principal .card button:hover {
   background-color: #BC292D;
-  box-shadow: 2px 6px rgba(240, 133, 32, 0.9529411765);
   border-radius: 5px;
   color: #F2F2F2;
   transition: 10ms ease-in-out;
+}
+body .principal .card:hover {
+  background-color: #F2C12E;
+  border: 2px solid #BC292D;
 }
 body .principal .table {
   height: 300px;
@@ -159,7 +167,9 @@ body .principal .table {
   text-transform: capitalize;
   font-weight: bold !important;
   color: rgba(240, 133, 32, 0.9529411765);
+  text-shadow: 1px 1px 2px #F2C12E;
   background-color: #F2F2F2;
+  font-size: 22px;
 }
 body .principal .table #tablaProductos {
   color: rgba(240, 133, 32, 0.9529411765);
@@ -171,11 +181,13 @@ body .principal .table #tablaProductos .tablabody {
   height: 100px;
   justify-content: center;
   line-height: 70px;
-  color: #F2C12E !important;
+  color: #F2C12E;
   text-shadow: 1px 1px 2px #BC292D;
+  font-size: 21px;
 }
-body .principal .table #tablaProductos .customButton {
-  font-family: cursive;
+body .principal .table #tablaProductos .delete {
+  border: none;
+  font-size: 24px;
 }
 body .footer {
   background-color: rgba(240, 133, 32, 0.9529411765);

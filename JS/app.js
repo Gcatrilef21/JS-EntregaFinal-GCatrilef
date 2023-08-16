@@ -4,7 +4,7 @@ const cantidadProd = document.querySelector('span.itemCarrito')
 const main = document.querySelector('div.principal#principal')
 const logo = document.querySelector('img.imglogo')
 const verCarrito = document.querySelector('i.bi.bi-bag-fill.logoCart')
-const URL = './JS/quesos.json'
+//const URL = './JS/quesos.json'
 
 
 /*                      Funciones                      */
@@ -57,9 +57,9 @@ function activarClickBotones() {
     const botones = document.querySelectorAll('button.boton')
     botones.forEach((boton) => {
         boton.addEventListener('click', () => {
-            const addProd = quesos.find((queso) => queso.id === parseInt((boton.id)))
-            carrito.push(addProd)
-            guardarProd ()
+            let addProd = quesos.find((queso) => queso.id === parseInt((boton.id)))
+            recuperarCarrito.push(addProd)
+            localStorage.setItem('GuardarQuesos', JSON.stringify(recuperarCarrito))
             mostrarCantidadCarro()
             mostrarMensajes("Añadido Correctamente", 'right', 'linear-gradient(to right, #F2C12E, #F08520F3)')
         })

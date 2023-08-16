@@ -5,7 +5,6 @@ const logo = document.querySelector('img.imglogo')
 const cantidadProd = document.querySelector('span.itemCarrito')
 
 
-
 /*                  FUNCIONES                  */
 
 function mostrarCantidadCarro() {
@@ -24,7 +23,7 @@ function mostrarListaCarrito({
                 <td>${codigo}</td>
                 <td>${nombre}</td>
                 <td>$${precio}</td>
-                <td><button class="delete" id="${id}" class="">❌</button></td>
+                <td id="${id}"><button class="delete">❌</button></td>
             </tr>`
 }
 
@@ -33,6 +32,18 @@ function mostrarSinProductos (){
                 <h3> ⛔ el carrito se encuentra vacio 🧀</h3>
                 <a href="./index.html"><button class"btn-error">seguir comprando</button></a>
             </div>`
+}
+
+function activarBotones(){
+    const botonesDelete = document.querySelectorAll('button.delete')
+    console.log(botonesDelete)
+    botonesDelete.forEach((botonDelete)=>{
+        botonDelete.addEventListener('click', ()=>{
+            let codigo = parseInt(botonDelete)
+            let indice = carrito.findIndex((queso)=> queso.id === codigo)
+
+        })
+    })
 }
 
 function cargarLista() {
@@ -49,7 +60,8 @@ cargarLista()
 search.addEventListener('mouseover', () => search.title = 'Buscar')
 logo.addEventListener('mouseover',() => logo.title = 'Ir al Inicio') 
 
-search.addEventListener('search', () => {
+
+/* search.addEventListener('search', () => {
     if (search.value.trim() !== '') {
         const resultado = quesos.filter((queso) => queso.nombre.toLowerCase().includes(search.value.trim().toLowerCase()))
         cargarLista(resultado)
@@ -57,6 +69,6 @@ search.addEventListener('search', () => {
         cargarLista(carrito)
     }
 })
+ */
 
-
-cargarLista (carrito)
+cargarLista (recuperarCarrito)
