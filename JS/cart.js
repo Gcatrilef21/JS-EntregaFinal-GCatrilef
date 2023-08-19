@@ -1,24 +1,22 @@
-const main = document.querySelector('div.principal#principal')
+const main = document.querySelector('div.main-cart#main-cart')
+const msgProduct = document.querySelector('section.card-cart')
+const tablahead = document.querySelector('thead#tablaNombres')
 const tablaProd = document.querySelector('tbody#tablaProductos')
-const search = document.querySelector('input.buscar#inputSearch')
 const logo = document.querySelector('img.imglogo')
 const cantidadProd = document.querySelector('span.itemCarrito')
+const btnComprar = document.querySelector('button.btn-compra')
+const totalCompra = document.querySelector('span#valorTotal')
 
 
 /*                  FUNCIONES                  */
 
-function mostrarCantidadCarro() {
-    cantidadProd.textContent = recuperarCarrito.length
-}
-
-recuperarCarrito.length > 0 && mostrarCantidadCarro()
 
 function mostrarListaCarrito({
     id,
     nombre,
     precio
 } = queso) {
-    const codigo = parseInt(Math.random()*1000)
+    const codigo = parseInt(Math.random() * 1000)
     return `<tr class='tablabody'>
                 <td>${codigo}</td>
                 <td>${nombre}</td>
@@ -28,12 +26,13 @@ function mostrarListaCarrito({
 }
 
 
-function mostrarSinProductos (){
+function mostrarSinProductos() {
     return `<div class="card-cart">
                 <h3> ⛔ el carrito se encuentra vacio 🧀</h3>
-                <a href="./index.html"><button class"btn-error">seguir comprando</button></a>
+                <a href="./index.html"><button class="btn-vacio">seguir comprando 🛒</button></a>
             </div>`
 }
+
 
 function activarBotonesEliminar(){
     const botonesEliminar = document.querySelectorAll('td.eliminar')
@@ -42,6 +41,17 @@ function activarBotonesEliminar(){
             let codigo = parseInt(botonEliminar.id)
             let resultado = recuperarCarrito.findIndex((queso) => queso.id === codigo) 
             recuperarCarrito.splice(resultado,1)
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Se ha eliminado correctamente',
+                showConfirmButton: false,
+                timer: 95000,
+                showClass:{
+                    popup:'animate__animated animate__swing'
+                },
+                
+            })
             cargarLista()
             guardarProductos ()
         })
@@ -51,31 +61,41 @@ function activarBotonesEliminar(){
 
 function cargarLista() {
     tablaProd.innerHTML = ''
-    if (recuperarCarrito.length > 0){
-        recuperarCarrito.forEach((queso) => tablaProd.innerHTML += mostrarListaCarrito (queso))
+    if (recuperarCarrito.length > 0) {
+        recuperarCarrito.forEach((queso) => tablaProd.innerHTML += mostrarListaCarrito(queso))
         activarBotonesEliminar()
-        mostrarCantidadCarro()
-    }else{
-        tablaProd.innerHTML = mostrarSinProductos ()
+        sumarTotal()
+    } else {
+        msgProduct.innerHTML = mostrarSinProductos()
     }
 }
 
+function sumarTotal() {
+    let suma = recuperarCarrito.reduce((acc, queso) => acc + queso.precio, 0);
+    totalCompra.textContent = suma;
+}
 
 
-                /*                  EVENTOS                  */
-
-search.addEventListener('mouseover', () => search.title = 'Buscar')
-logo.addEventListener('mouseover',() => logo.title = 'Ir al Inicio') 
+/*                  EVENTOS                  */
 
 
-/* search.addEventListener('search', () => {
-    if (search.value.trim() !== '') {
-        const resultado = quesos.filter((queso) => queso.nombre.toLowerCase().includes(search.value.trim().toLowerCase()))
-        cargarLista(resultado)
-    } else {
-        cargarLista(carrito)
-    }
+logo.addEventListener('mouseover', () => logo.title = 'Ir al Inicio')
+
+btnComprar.addEventListener('click', () => {
+    Swal.fire({
+        title: '¿Deseas Finalizar la compra?',
+        icon: 'info',
+        showDenyButton: true,
+        confirmButtonText: 'CONFIRMAR',
+        denyButtonText: 'CANCELAR'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            localStorage.removeItem('GuardarQuesos')
+            recuperarCarrito.length = 0
+            Swal.fire('Gracias por preferirnos!', '', 'success')
+            msgProduct.innerHTML = mostrarSinProductos()
+        }
+    })
 })
- */
 
-cargarLista (recuperarCarrito)
+cargarLista(recuperarCarrito)

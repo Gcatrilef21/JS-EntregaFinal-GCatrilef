@@ -7,7 +7,7 @@
 
 body {
   height: 1400px;
-  width: auto;
+  width: 100%;
   background-color: #F2F2F2;
 }
 body .header {
@@ -108,7 +108,7 @@ body .principal {
 body .principal .card {
   margin-top: 140px;
   height: 400px;
-  width: 200px;
+  width: 180px;
   text-align: center;
   background-color: #F2F2F2;
   border: 4px solid #F2C12E;
@@ -160,34 +160,81 @@ body .principal .card:hover {
   background-color: #F2C12E;
   border: 2px solid #BC292D;
 }
-body .principal .table {
-  height: 300px;
+body .main-cart {
+  min-height: 550px;
+  width: auto;
+  margin-top: 25px;
+  display: flex;
+  justify-content: space-around;
+}
+body .main-cart .table {
+  max-height: 400px;
+  width: 800px;
   margin: 45px;
   text-align: center;
+  text-shadow: 1px 1px 2px #BC292D;
   text-transform: capitalize;
-  font-weight: bold !important;
-  color: rgba(240, 133, 32, 0.9529411765);
-  text-shadow: 1px 1px 2px #F2C12E;
-  background-color: #F2F2F2;
+  font-weight: lighter;
+  color: #F2F2F2;
   font-size: 22px;
 }
-body .principal .table #tablaProductos {
-  color: rgba(240, 133, 32, 0.9529411765);
-  padding: 60px;
-  color: #0D0D0D;
-  align-items: center;
+body .main-cart .table #tablaNombres {
+  background-color: #F2C12E;
 }
-body .principal .table #tablaProductos .tablabody {
-  height: 100px;
-  justify-content: center;
-  line-height: 70px;
-  color: #F2C12E;
-  text-shadow: 1px 1px 2px #BC292D;
+body .main-cart .table #tablaProductos {
+  max-height: 100px;
+  line-height: 90px;
+  color: #BC292D;
+  padding: 60px;
+  align-items: center;
+  text-shadow: 1px 1px 2px #F2C12E;
   font-size: 21px;
 }
-body .principal .table #tablaProductos .delete {
+body .compra {
+  height: 150px;
+  margin-bottom: 20px;
+  color: rgba(240, 133, 32, 0.9529411765);
+  text-align: center;
+  text-transform: capitalize;
+  font-size: 27px;
+  font-weight: bold;
+}
+body .compra .btn-compra {
+  width: 180px;
+  color: #BC292D;
+  border: 2px solid #F2C12E;
+  font-size: 22px;
+  font-weight: lighter;
+  border-radius: 20px;
+  text-transform: capitalize;
+}
+body .card-cart {
+  height: 900px;
+  width: auto;
+  margin: 25px;
+  text-transform: capitalize;
+  color: rgba(240, 133, 32, 0.9529411765);
+  text-shadow: 1px 1px 2px #BC292D;
+}
+body .card-cart h3 {
+  text-align: center;
+  padding: 40px;
+}
+body .card-cart a {
+  text-decoration: none;
+  justify-content: center;
+  display: flex;
+}
+body .card-cart a .btn-vacio {
+  height: 35px;
+  width: 300px;
+  border-radius: 20px;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  background-color: rgba(240, 133, 32, 0.9529411765);
   border: none;
-  font-size: 24px;
+  color: #F2F2F2;
 }
 body .footer {
   background-color: rgba(240, 133, 32, 0.9529411765);
